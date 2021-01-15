@@ -1,9 +1,19 @@
-//console.log('Topic: Sync-Generators');
+console.log('Topic: Sync-Generators');
 
 // Task 1. 
 // RU: Наишите функцию-генератор, которая генерирует числа в диапазоне от start до end.
 // EN: Create function-generator, which generates and returns numbers from start to end.
 
+// function* generatar(start,end) {
+//     let min = Math.ceil(start);
+//     let max = Math.floor(end);
+//     let result = Math.floor(Math.random() * (max - min + 1)) + min;
+//     yield result;
+//   }
+  
+// for (let index = 0; index < 5; index++) {
+//     console.log(generatar(0,100).next().value);
+// }
 
 // Task 2. Long Sequences
 // RU: Создать массив из чисел от 1 до 1000. 
@@ -14,10 +24,57 @@
 //     Result [1, 1], [1, 2], ..., [2, 1], [2, 2], ..., [1000, 1000]
 
 
+// let inputArray = [];
+// for (let index = 0; index < 10; index++) {
+//     inputArray.push(index);
+// }
+
+// function* generator(){
+//     let i = 0;
+//     let j = 0;
+//     while(true){
+//        let res = [inputArray[i++],inputArray[j]];
+//        if (i == inputArray.length){
+//           i = 0;
+//           j++;
+//        }
+
+//        yield res;
+//     }
+// }
+
+// let gen = generator();
+// for (let k = 0; k < 100; k++) {
+//       console.log(gen.next().value);
+// }
+
+
 // Task 3. 
 // RU: Реализуйте функцию генерации чисел Фибоначчи до бесконечности
 // EN: Implement the infinite function-generator of generating Fibonacci numbers
 
+
+// let fb = function fibo(n) {
+//     if (n == 0 || n == 1){
+//         return n;
+//     }else {
+//         return fibo(n - 1) + fibo(n-2);
+//     }
+// };
+
+// function* fib_generator(){
+//     var count = 0;
+//     while(true){
+//         let f = fb(count++);
+//         yield f;
+//     }
+// }
+
+// let gen = fib_generator();
+
+// for (let index = 0; index < 10; index++) {
+//     console.log(gen.next().value);    
+// }
 
 // Task 4. yield* 
 // RU: Реализуйте функцию-генератор, которая будет генерировать последовательность 
@@ -29,6 +86,7 @@
 //     Use the function-generator generateSequence implemented above, 
 //     String.fromCharCode (code), and a range of numbers from 48 to 57,
 //     65 to 90 and 97 to 122
+
 
 
 // Task 5. Sync Piping

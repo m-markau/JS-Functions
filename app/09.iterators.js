@@ -34,37 +34,37 @@ console.log('Topic: Iterators');
 //     The boolean flag indicates whether a user is an administrator of the group.
 //     Сreatereate an iterator that returns only the administrators' names.
 
-const users = {
-  anna: false,
-  boris: true, // admin
-  christina: false,
-  dave: false,
-  elena: false,
-  felix: true,  // admin
-};
+// const users = {
+//   anna: false,
+//   boris: true, // admin
+//   christina: false,
+//   dave: false,
+//   elena: false,
+//   felix: true,  // admin
+// };
 
-// 1. вызов for..of сначала вызывает эту функцию
-users[Symbol.iterator] = function() {
-    let entries = Object.entries(this).filter(obj =>  obj[1]);
+// // 1. вызов for..of сначала вызывает эту функцию
+// users[Symbol.iterator] = function() {
+//     let entries = Object.entries(this).filter(obj =>  obj[1]);
     
-    let nextIndex = 0;
-    // ...она возвращает объект итератора:
-    // 2. Далее, for..of работает только с этим итератором, запрашивая у него новые значения
-    return {
+//     let nextIndex = 0;
+//     // ...она возвращает объект итератора:
+//     // 2. Далее, for..of работает только с этим итератором, запрашивая у него новые значения
+//     return {
   
-      // 3. next() вызывается на каждой итерации цикла for..of
-      next() {
-        // 4. он должен вернуть значение в виде объекта {done:.., value :...}
-        if (nextIndex < entries.length) {
-          return {done: false, value: entries[nextIndex++][0]};
-        } else {
-          return {done: true};
-        }
-      }
-    };
-  };
+//       // 3. next() вызывается на каждой итерации цикла for..of
+//       next() {
+//         // 4. он должен вернуть значение в виде объекта {done:.., value :...}
+//         if (nextIndex < entries.length) {
+//           return {done: false, value: entries[nextIndex++][0]};
+//         } else {
+//           return {done: true};
+//         }
+//       }
+//     };
+//   };
 
-[...users].forEach(name => console.log(name)); // boris, felix 
+// [...users].forEach(name => console.log(name)); // boris, felix 
 
 
 // Task 3
@@ -81,7 +81,21 @@ users[Symbol.iterator] = function() {
 //   })
 // };
 
-// const a = [...take(random, 3)];
+// function take(randomArg, number){
+//   let res = [];
+//   let count = 0;
+//   for(obj of randomArg){
+//     if (count < number){
+//       res.push(obj);
+//       count++;
+//     }else{
+//       break;
+//     }
+//   }
+//   return res;
+// }
+
+// const a = [...take(random, 50)];
 // console.log(a);
 
 
@@ -90,6 +104,27 @@ users[Symbol.iterator] = function() {
 //     Реализовать метод return для остановки итератора с помощью for-of + break
 // EN: Create iterable iterator, which produces Fibonacci numbers
 //     Implement method return, which allows you to stop iterator using for-of + break
+
+// let fb = function fibo(n) {
+//     if (n == 0 || n == 1){
+//         return n;
+//     }else {
+//         return fibo(n - 1) + fibo(n-2);
+//     }
+// };
+
+// const Fib = {
+//   n:0
+// };
+
+// Fib[Symbol.iterator] = function(){
+//   let n = this.n;
+//   return {
+//     next: () => ({
+//        value: fb(n++)
+//     })
+//   }
+// };
 
 // for (let v of Fib) {
 //   console.log(v);
@@ -103,5 +138,6 @@ users[Symbol.iterator] = function() {
 // EN: Create iterator for numbers, which allows you to get arrays of sequential integers.
 //     Example, [...-3] => [0, -1, -2, -3], [...3] => [0, 1, 2, 3]
 
-// console.log([...-5]);
-// console.log([...5]);
+
+//console.log([...-5]);
+//console.log([...5]);
