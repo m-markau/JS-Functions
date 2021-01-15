@@ -1,5 +1,13 @@
 console.log('Topic: Sync-Generators');
 
+//test pull сorrected
+
+//test pull 2 corrected
+// corrected T
+
+// Final fix
+
+
 // Task 1. 
 // RU: Наишите функцию-генератор, которая генерирует числа в диапазоне от start до end.
 // EN: Create function-generator, which generates and returns numbers from start to end.
