@@ -1,8 +1,9 @@
 console.log('Topic: Sync-Generators');
 
-//test pull 
+//test pull сorrected
 
-//test pull 2
+//test pull 2 corrected
+// corrected 
 
 
 // Task 1. 
